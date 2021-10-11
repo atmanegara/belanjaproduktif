@@ -1,0 +1,306 @@
+<div class="box box-success">
+        <div class="box-header">
+            <h3 class="box-title">
+                Daftar Data Dosen
+            </h3>
+            <div class="pull-right">
+<?= Html::a('Tambah Data Dosen', ['create'], ['class' => 'btn btn-success']) ?>
+
+            </div>
+        </div>
+        <div class="box-body">
+       
+        </div>
+    </div>
+
+ 
+
+<div class="panel panel-primary">
+        <div class="panel-heading">
+            Form Data Dosen
+        </div>
+        <div class="panel-body">
+          
+ 
+        </div>
+    </div>
+
+---------------------------------
+<style>
+.select2-container--open{
+z-index:9999999
+}
+    </style>
+------------------
+    public function reupload(){
+        if($this->validate()){
+            
+            $pathfilename= Yii::getAlias('@path_upload/') . $this->filename;
+            if(file_exists($pathfilename)){
+                unlink($pathfilename);
+            }
+            $filename = $this->nomor.'_'. date('YmdHis').'_SOP.'.$this->filedok->extension;
+            $this->filename = $filename;
+            $this->filedok->saveAs(Yii::getAlias('@path_upload/').$filename);
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+------------------------
+
+    <p>
+           <?= Html::a('<i class="fa fa-backward"></i> Kembali', ['index'], ['class' => 'btn btn-default']) ?>
+     
+    </p>
+---------------
+  $url=Url::to(Yii::getAlias('@sourcePathImg/').$data['filename']);
+		                    return Html::a('Tampil Dokumen',$url,[
+		                        'class'=>'btn btn-md btn-info',
+		                        'onClick'=>
+		                        "window.open('".$url."',
+                         'newwindow',
+                         'width=300,height=250');
+              return false;"
+		                    ]);
+---------------------
+
+else{
+           Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+           return \kartik\form\ActiveForm::validate($model);
+       }
+---------------------------
+  ['class' => 'kartik\grid\ActionColumn','template'=>'{delete} {update}',
+               'buttons'=>[
+                   'update'=>function($url,$data,$key){
+        return Html::button('<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>', ['class' => 'btn btn-warning showModalButton',
+            'value'=>Url::to( ['/akreditasi/dtl-reputasi-peserta-didik/update','id'=>$key])
+        ]);
+                   },
+                                  'delete'=>function($url,$data,$key){
+        return Html::a('<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>',Url::to( ['/akreditasi/dtl-reputasi-peserta-didik/delete','id'=>$key]), ['class' => 'btn btn-danger btn-md',
+            'data'=>[
+                'confirm'=>'Anda Yakin Hapus item ini?',
+                'method'=>'post'
+            ]]);
+                   }
+               ] 
+               
+            ],
+
+--------------------------------------
+
+['class' => 'kartik\grid\ActionColumn','template'=>'{view} {hapus}','width'=>'5%',
+                'buttons'=>[
+                    'view'=>function($url,$data){
+                    return Html::a('View',['entry-data','no_acak'=>$data['no_acak']],['class'=>'btn btn-warning']);
+                    },
+                                                                     'hapus'=>function($url,$data){
+                    $url= Url::to(['delete-all','no_acak'=>$data['no_acak']]);
+                        return Html::a('Hapus',$url,['class'=>'btn btn-danger',
+                            'data'=>[
+                                'method'=>'post',
+                                'confirm'=>'Anda yakin data ini mau dihapus?'
+                            ]
+                        ]);
+                    }
+                            ]
+                ],
+-----------------------------------------
+<div class="note note-primary m-b-15">
+					<div class="note-icon"><i class="fas fa-info"></i></div>
+					<div class="note-content">
+						<h4><b>Informasi!</b></h4>
+						<p>
+							Halaman ini untuk daftar jenis dokumen prasyarat menjadi anggota,
+                                                </p>
+					</div>
+				</div>
+
+------------------------------
+<p>
+        <?= Html::button('Tambah baru',['class' => 'btn btn-success showModalButton',
+            'value'=>Url::to( ['create'])]) ?>
+    </p>
+
+
+---------------------------
+            ['class' => 'kartik\grid\ActionColumn','width'=>'5%','template'=>'{view} {update} {delete}',
+                'buttons'=>[
+                    'view'=>function($url,$data,$key){
+                        $url = \yii\helpers\Url::to(['view','id'=>$key]);
+                        return Html::button('<span class="fas fa-eye" aria-hidden="true"></span>',['class'=>'btn btn-info showModalButton',
+                            'value'=> $url]);
+                    },
+                       'update'=>function($url,$data,$key){
+                        $url = \yii\helpers\Url::to(['update','id'=>$key]);
+                        return Html::button('<span class="fas fa-pencil-alt" aria-hidden="true"></span>',['class'=>'btn btn-warning showModalButton',
+                            'value'=> $url]);
+                    },
+                            'delete'=>function($url,$data,$key){
+                        $url = \yii\helpers\Url::to(['delete','id'=>$key]);
+                        return Html::a('<span class="fas fa-trash-alt" aria-hidden="true"></span>',$url,['class'=>'btn btn-danger',
+                            'data'=> [
+                                'method'=>'POST',
+                                'confirm'=>'Apakah anda yakin hapus item ini?'
+                            ]]);
+                    },
+                ]],
+
+---------------------
+ ['attribute'=> ,'width'=>'5%'] ,
+
+
+   if ($model->load(Yii::$app->request->post())) {
+            if($model->save()){
+            return $this->redirect(['/#ref-jam']);
+            }else{
+                    Yii::$app->response->format= \yii\web\Response::FORMAT_JSON;
+                return \kartik\form\ActiveForm::validate($model);
+            }
+        }
+
+----------checkbox
+=='1' ? "<p style='font-family:helvetica'>&#10004;</p>" : '-'
+
+
+==1 ? "<i class='fa fa-check'></i>" : '-';
+----------------print
+
+'print'=>function($url,$data){
+                    return Html::a('<i class="fa fa-print"></i> Print',['preview-data','no_acak'=>$data['no_acak']],['class'=>'btn btn-info']);
+                    },
+
+
+ public function actionPreviewData($no_acak){
+           $query = DtlLayananPeserta::find()->where(['no_acak'=>$no_acak])->all();
+           
+           return $this->render('preview-data',[
+               'query'=>$query,
+               'no_acak'=>$no_acak
+           ]);
+    }
+    
+    public function actionPrintData($export,$no_acak){
+                   $query = DtlLayananPeserta::find()->where(['no_acak'=>$no_acak])->all();
+            $filename=$no_acak.'.pdf';
+           $content = $this->renderPartial('print-data',[
+               'query'=>$query
+           ]);
+
+     if($export=='pdf'){
+             $pdf = new \kartik\mpdf\Pdf();
+            $mpdf = $pdf->api;
+            $mpdf->WriteHtml($content);
+            return   $mpdf->Output($filename, 'I');
+        }elseif($export=='xls'){
+            
+            header("Content-type: application/vnd.ms-excel");
+            header('Content-Disposition: attachment; filename="' . $filename . '.xls"');
+            return $content;
+        }
+
+    }
+------delete all file borang
+       \backend\models\FileBerkasBorang::deleteAllFile($no_acak);
+
+
+----upload file
+ $fileBerkasBorangModel = \backend\models\FileBerkasBorang::find()->where(['no_acak'=>$no_acak]);
+    
+         $dataProviderFileBorang = new ActiveDataProvider([
+             'query'=>$fileBerkasBorangModel
+         ]);
+
+         'dataProviderFileBorang'=>$dataProviderFileBorang,
+ <p>
+        <?=Html::button('Upload File',['class'=>'btn btn-md btn-primary showModalButton',
+            'value'=> Url::to(['/akreditasi/file-berkas-borang/create','no_acak'=>$model['no_acak']])
+            ])?>
+    </p>
+  <?= GridView::widget([
+      'panel'=>[
+          'heading'=>'Daftar Berkas',
+          'type'=> GridView::TYPE_INFO
+      ],
+        'dataProvider' => $dataProviderFileBorang,
+        'columns' => [
+            ['class' => 'kartik\grid\SerialColumn'],
+
+        //    'id',
+        //    'no_acak',
+            'ket',
+            'filename',
+    ///        'type_file',
+            //'tgl_jam',
+
+            [
+                            'class'=> '\kartik\grid\ActionColumn',
+                            'template'=>'{view}  {delete}',
+                            'buttons'=>[
+                                'view'=>function($url,$data,$key){
+                             $path_file=$data['lokasi_upload'];//'.'.substr($tes,$mulai);
+	            $path = substr($path_file, strpos($path_file, "uploads"));
+	            $path = str_replace("\\","/",$path);
+	            
+	            $url=Url::to(['/'.$path.'/'.$data['filename']]);
+	            
+	            return Html::a('Tampil Dokumen',$url,[
+	                'class'=>'btn btn-md btn-info',
+	                'onClick'=>
+	                "window.open('".$url."',
+                         'newwindow',
+                         'toolbar=no, location=no, directories=no, status=no, menubar=no,width=300,height=200,top=200,left=300');
+              return false;"
+	            ]);
+                                },
+                                'delete'=>function($url,$data,$key){
+                                    $url = ['/akreditasi/file-berkas-borang/delete','id'=>$key];
+                                    return Html::a('<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>', $url, [
+                                        'class'=>"btn btn-md btn-danger",
+                                        'data'=>[
+                                            'method'=>'post',
+                                            'confirm'=>'Yakin item ini mau dihapus?'
+                                        ]
+                                    ]);
+                                }
+                            ]
+                        ]
+        ],
+    ]); ?>
+
+->widget(kartik\number\NumberControl::class,[
+        'maskedInputOptions' => [
+        'prefix' => 'Rp ',
+        'groupSeparator' => '.',
+        'radixPoint' => ',',
+              'rightAlign' => false
+    ],
+    ])
+
+            'beforeHeader'=>[
+        [
+            'columns'=>[
+                ['content'=>false, 'options'=>['colspan'=>5, 'class'=>'text-center default']], 
+                ['content'=>'Sasaran Pembelajaran Utama', 'options'=>['colspan'=>4, 'class'=>'text-center danger']], 
+                ['content'=>false, 'options'=>['colspan'=>2, 'class'=>'text-center default']], 
+            ],
+            'options'=>['class'=>'skip-export'] // remove this row from export
+        ]
+    ],
+
+
+        \backend\models\FileBerkasBorang::deleteAllFile($no_acak);
+
+  -------------
+<?= $form->field($model, 'lokasi_upload')->widget(\kartik\select2\Select2::class,[
+     'data'=>backend\models\QueryModel::ListDirektori(),
+     'options'=>[
+       'placeholder'=>'Pilih Lokasi Penyimpanan..'  
+     ],
+     'pluginOptions'=>[
+         'allowClear'=>true
+     ]
+//        'prompt'=>'Lokasi Upload Dokumen...'
+    ]) ?>

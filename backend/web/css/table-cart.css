@@ -1,0 +1,119 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jun 24, 2020, 5:23:19 PM
+    Author     : Administrator
+*/
+
+
+
+/* 11.5 Checkout Table Cart Setting */
+
+.table.table-cart th {
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+.table.table-cart th {
+    padding: 10px 20px 5px;
+}
+.table.table-cart td {
+    padding: 15px 20px;
+}
+.table.table-cart .cart-product .product-img {
+    float: left;
+    width: 120px;
+}
+.table.table-cart .cart-product .product-img img {
+    max-width: 100%;
+}
+.table.table-cart .cart-product .product-info {
+    margin-left: 130px;
+}
+.table.table-cart .cart-product .product-info .title {
+    font-weight: 600;
+}
+.table.table-cart .cart-product .product-info .desc {
+    color: #666;
+    font-size: 12px;
+}
+
+
+/* 11.6 Checkout Cart Qty Setting */
+
+.cart-qty {
+    width: 160px;
+}
+.cart-total,
+.cart-control {
+    width: 100px;
+}
+.cart-qty .qty-desc {
+    font-size: 12px;
+    color: #9c9c9c;
+    margin-top: 5px;
+}
+.cart-qty-input {
+    display: table;
+    width: 100%;
+}
+.cart-qty-input .qty-control,
+.cart-qty-input .form-control  {
+    display: table-cell;
+    float: none;
+    width: auto;
+}
+.cart-qty-input .form-control {
+    width: 34px;
+    margin: 0 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    text-align: center;
+}
+.cart-qty-input .qty-control {
+    color: #212121;
+    width: 34px;
+    border-radius: 34px;
+}
+.cart-qty-input .qty-control:hover,
+.cart-qty-input .qty-control:focus {
+    background: #f3f4f5;
+}
+
+
+/* 11.7 Checkout Summary Setting */
+
+.summary-container {
+    float: right;
+    width: 360px;
+    text-align: right;
+}
+.summary-container .summary-row {
+    display: table;
+    width: 100%;
+}
+.summary-container .field,
+.summary-container .value {
+    display: table-cell;
+    width: 40%;
+}
+.summary-container .value {
+    width: 60%;
+}
+.summary-container .summary-row + .summary-row {
+    margin-top: 5px;
+}
+.summary-container .summary-row.total {
+    border-top: 1px solid #c5ced4;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: -20px;
+}
+.summary-container .summary-row.total .field,
+.summary-container .summary-row.total .value {
+    padding-top: 10px;
+}
