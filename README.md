@@ -24,3 +24,6 @@ Sistem Jual Beli Online ini menggunakan sistem berbagi hasil pada setiap anggota
 
 3. Menu
 ![image](https://user-images.githubusercontent.com/9096711/136744912-02a37af6-fba7-4368-b4a0-e30732f98663.png)
+
+
+Info lengkap : 081311212216 (Arief)
